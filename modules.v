@@ -54,9 +54,9 @@ module pass_check #(parameter N=`parking_slots)();
     $readmemb("./DB.txt", var);
     $readmemb("./input.txt", in);
     $display("\nChecking Password...");
-    $display("in[0]=%b in[1]=%b",in[0],in[1]);
+
     for (k=0; k<=N; k=k+1) begin
-      $display("\t%0d \t\t: %b %b",k,var[k],password);
+      // $display("\t%0d \t\t: %b %b",k,var[k],password);
       if((flat_number==k) && (var[k]==password)) flag=1;
     end
     if(flag) begin
