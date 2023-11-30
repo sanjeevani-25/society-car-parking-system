@@ -5,4 +5,3 @@ module main;
     display_Allpass inst2();
     pass_check inst3();
 endmodule
-

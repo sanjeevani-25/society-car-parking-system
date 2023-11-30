@@ -1,5 +1,7 @@
 `define parking_slots 10
 
+`include "slot_avail.v"
+
 module  add_passwords #(parameter N=`parking_slots)();
 
   integer fd,k,i;
@@ -48,7 +50,6 @@ module pass_check #(parameter N=`parking_slots)();
   reg pwd_flag=0;
   wire avail_flag;
 
-
   assign flat_number = in[0];
   assign password = in[1];
 
@@ -62,32 +63,16 @@ module pass_check #(parameter N=`parking_slots)();
       if((flat_number==k) && (var[k]==password)) pwd_flag=1;
     end
 
-    // if(pwd_flag) begin
-    //     $display("Password Verified 1");
-    //   end
-    // else begin
-    //   $display("Wrong Password. Try Again. 1");
-    // end
-
-    $display("flat = %0d password = %0d",flat_number ,password );
-  end
-
-  slot_availability inst4(pwd_flag, flat_number, avail_flag);
-
-endmodule
-
-module slot_availability #(parameter N=`parking_slots)(input pwd_flag,input [$clog2(N):0] flat_number, output reg avail_flag);
-
-  initial begin
-    #10;
     if(pwd_flag) begin
-        assign avail_flag=0;
         $display("Password Verified");
       end
     else begin
-        assign avail_flag=1;
       $display("Wrong Password. Try Again.");
     end
+
+    // $display("flat = %0d password = %0d",flat_number ,password );
   end
+
+  slot_availability inst4(pwd_flag, flat_number);
 
 endmodule
