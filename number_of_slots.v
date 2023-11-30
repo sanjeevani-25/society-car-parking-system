@@ -1,1 +1,1 @@
-`define parking_slots 10
+`define parking_slots 3

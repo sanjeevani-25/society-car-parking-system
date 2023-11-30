@@ -72,6 +72,6 @@ module pass_check #(parameter N=`parking_slots)();
     // $display("flat = %0d password = %0d",flat_number ,password );
   end
 
-  slot_availability inst4(pwd_flag, flat_number);
+  slot_availability_entry inst4(pwd_flag, flat_number);
 
 endmodule

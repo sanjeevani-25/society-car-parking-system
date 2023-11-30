@@ -1,4 +1,4 @@
-module slot_availability #(parameter N=`parking_slots)(
+module slot_availability_entry #(parameter N=`parking_slots)(
 input pwd_flag,
 input [$clog2(N):0] flat_number
 );
