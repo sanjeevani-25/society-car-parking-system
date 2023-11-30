@@ -3,5 +3,7 @@
 /modules.v.out
 /DB.txt
 /input.txt
-/availability_DB.txt
+/slot_avail_DB.txt
 /slot_avail.v.out
+/clear_slots_out.vvp
+/clear_slots.v.out

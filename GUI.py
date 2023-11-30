@@ -1,4 +1,5 @@
 import os
+from termcolor import colored
 
 flat_number = input("Enter Your Flat Number : ")
 password = input("Enter Your Password : ")
@@ -20,6 +21,25 @@ file.close()
 
 os.system('cmd /c "iverilog -o main_out.vvp main.v"')
 os.system('cmd /c "vvp main_out.vvp"')
+
+
+def clear_slot():
+    clear_all_slots = input("Do you want to clear all slots? (Y/N)")
+
+    if(clear_all_slots=='Y' or clear_all_slots=='y'):
+        print("cleared")
+        os.system('cmd /c "iverilog -o clear_slots_out.vvp clear_slots.v"')
+        os.system('cmd /c "vvp clear_slots_out.vvp"')
+
+    elif(clear_all_slots=='N' or clear_all_slots=='n'):
+        print("refresh")
+        os.system('cmd /c "python GUI.py"')
+        
+    else:
+        print(colored('Enter appropriate value!! (Y/N)','red'))
+        clear_slot()
+
+clear_slot()
 
 # open('DB.txt', 'w').close()
 # open('input.txt', 'w').close()

@@ -1,5 +1,4 @@
-`define parking_slots 10
-
+`include "number_of_slots.v"
 `include "slot_avail.v"
 
 module  add_passwords #(parameter N=`parking_slots)();
