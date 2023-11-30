@@ -7,20 +7,20 @@ module  add_passwords #(parameter N=`parking_slots)();
   reg [$clog2(N):0] var [0:N];
   reg [$clog2(N):0] password ;
 
-initial begin
-  
-  fd=$fopen("./DB.txt","w");
+  initial begin
+    
+    fd=$fopen("./DB.txt","w");
 
-  for (k=0; k<=N; k=k+1) begin 
-    password =$urandom(seed) % 20;
-    seed=$urandom;
-    $fwrite(fd," %b",password ); 
-    // $fdisplay(fd,"%b",password ); 
+    for (k=0; k<=N; k=k+1) begin 
+      password =$urandom(seed) % 20;
+      seed=$urandom;
+      $fwrite(fd," %b",password); 
+      // $fdisplay(fd,"%b",password ); 
+    end
+    $display("Database updated");
+    $fclose(fd);
+
   end
-  $display("Database updated");
-  $fclose(fd);
-
-end
 endmodule
 
 
@@ -29,13 +29,13 @@ module display_Allpass #(parameter N=`parking_slots)();
   output reg [$clog2(N):0] var [0:N];
   integer k;
 
-initial begin
-  $readmemb("./DB.txt", var);
-  $display("\nFlat Number : Password");
-  for (k=0; k<=N; k=k+1) begin
-    $display("\t%0d \t\t: %b %d",k,var[k],var[k]);
+  initial begin
+    $readmemb("./DB.txt", var);
+    $display("\nFlat Number : Password");
+    for (k=0; k<=N; k=k+1) begin
+      $display("\t%0d \t\t: %b %d",k,var[k],var[k]);
+    end
   end
-end
 endmodule
 
 
@@ -45,7 +45,9 @@ module pass_check #(parameter N=`parking_slots)();
   output reg [$clog2(N):0] in [0:1];
   output  [$clog2(N):0] flat_number ,password;
   integer k;
-  reg flag=0;
+  reg pwd_flag=0;
+  wire avail_flag;
+
 
   assign flat_number = in[0];
   assign password = in[1];
@@ -57,14 +59,35 @@ module pass_check #(parameter N=`parking_slots)();
 
     for (k=0; k<=N; k=k+1) begin
       // $display("\t%0d \t\t: %b %b",k,var[k],password);
-      if((flat_number==k) && (var[k]==password)) flag=1;
+      if((flat_number==k) && (var[k]==password)) pwd_flag=1;
     end
-    if(flag) begin
+
+    // if(pwd_flag) begin
+    //     $display("Password Verified 1");
+    //   end
+    // else begin
+    //   $display("Wrong Password. Try Again. 1");
+    // end
+
+    $display("flat = %0d password = %0d",flat_number ,password );
+  end
+
+  slot_availability inst4(pwd_flag, flat_number, avail_flag);
+
+endmodule
+
+module slot_availability #(parameter N=`parking_slots)(input pwd_flag,input [$clog2(N):0] flat_number, output reg avail_flag);
+
+  initial begin
+    #10;
+    if(pwd_flag) begin
+        assign avail_flag=0;
         $display("Password Verified");
       end
-      else begin
-        $display("Wrong Password. Try Again.");
-      end
-    // $display("flat = %0d passowrd = %0d",flat_number ,password );
+    else begin
+        assign avail_flag=1;
+      $display("Wrong Password. Try Again.");
+    end
   end
+
 endmodule

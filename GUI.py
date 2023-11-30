@@ -21,5 +21,5 @@ file.close()
 os.system('cmd /c "iverilog -o main_out.vvp main.v"')
 os.system('cmd /c "vvp main_out.vvp"')
 
-open('DB.txt', 'w').close()
-open('input.txt', 'w').close()
+# open('DB.txt', 'w').close()
+# open('input.txt', 'w').close()
