@@ -1,10 +1,6 @@
 import os
 from termcolor import colored
 
-def init():
-    os.system('cmd /c "iverilog -o clear_slots_out.vvp clear_slots.v"')
-    os.system('cmd /c "vvp clear_slots_out.vvp"')
-
 def vehicle_entry():
     flat_number = input("Enter Your Flat Number : ")
     password = input("Enter Your Password : ")
@@ -32,7 +28,7 @@ def clear_slot():
     clear_all_slots = input("Do you want to clear all slots? (Y/N)")
 
     if(clear_all_slots=='Y' or clear_all_slots=='y'):
-        print(colored("Cleared",'red'))
+        print(colored("Cleared",'blue'))
         os.system('cmd /c "iverilog -o clear_slots_out.vvp clear_slots.v"')
         os.system('cmd /c "vvp clear_slots_out.vvp"')
         open('DB.txt', 'w').close()
@@ -40,8 +36,8 @@ def clear_slot():
         open('slot_avail_DB.txt', 'w').close()
 
     elif(clear_all_slots=='N' or clear_all_slots=='n'):
-        print("refresh")
-        os.system('cmd /c "python main.py"')
+        print(colored("Refresh",'blue'))
+        os.system('cmd /c "python main2.py"')
         
     else:
         print(colored('Enter appropriate value!!','red'))

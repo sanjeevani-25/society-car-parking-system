@@ -1,25 +1,10 @@
-import GUI as g
+import os
 from termcolor import colored
-
-def inp():
-    num = input(colored("For Entry --> 1\nFor Exit --> 0\n",'green'))
-    num=int(num)
-    if(num==1):
-        g.vehicle_entry()
-    elif(num==0):
-        g.vehicle_exit()
-    else:
-        print(colored('Enter appropriate value!','red'))
-        inp()
 
 slots = input(colored("Enter number of parking slots : ",'green'))
 slots_file = open("number_of_slots.v", "w")
-slots_file.write("`define parking_slots "+ slots)
+slots_file.write("`define parking_slots "+ (slots-1))
 slots_file.close()
-
-g.init()
-inp()
-g.clear_slot()
-
-# vehicle exit 
-
+os.system('cmd /c "iverilog -o clear_slots_out.vvp clear_slots.v"')
+os.system('cmd /c "vvp clear_slots_out.vvp"')
+os.system('cmd /c "python main2.py"')
