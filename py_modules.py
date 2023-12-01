@@ -8,7 +8,6 @@ def vehicle_entry():
     def DecimalToBinary(n):
         return bin(n).replace("0b", "")
 
-
     flat_number_binary = DecimalToBinary(int(flat_number))
     pwd_binary = DecimalToBinary(int(password))
 
@@ -22,10 +21,28 @@ def vehicle_entry():
     os.system('cmd /c "vvp main_out.vvp"')
 
 def vehicle_exit():
-    print("vehicle exited")
+    # print("vehicle exited")
+    flat_number = input("Enter Your Flat Number : ")
+
+    def DecimalToBinary(n):
+        return bin(n).replace("0b", "")
+
+    flat_number_binary = DecimalToBinary(int(flat_number))
+
+    print(flat_number_binary)
+
+    file = open("input.txt", "w")
+    file.write(flat_number_binary)
+    file.close()
+
+    os.system('cmd /c "iverilog -o slot_exit_out.vvp slot_availability_exit.v"')
+    os.system('cmd /c "vvp slot_exit_out.vvp"')
+
+def guest_parking():
+    print("this is guest parking")
 
 def clear_slot():
-    clear_all_slots = input("Do you want to clear all slots? (Y/N)")
+    clear_all_slots = input("Do you want to clear all slots? (Y/N) : ")
 
     if(clear_all_slots=='Y' or clear_all_slots=='y'):
         print(colored("Cleared",'blue'))
@@ -37,7 +54,7 @@ def clear_slot():
 
     elif(clear_all_slots=='N' or clear_all_slots=='n'):
         print(colored("Refresh",'blue'))
-        os.system('cmd /c "python main2.py"')
+        os.system('cmd /c "python py_main2.py"')
         
     else:
         print(colored('Enter appropriate value!!','red'))

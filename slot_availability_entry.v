@@ -1,3 +1,5 @@
+`include "number_of_slots.v"
+
 module slot_availability_entry #(parameter N=`parking_slots)(
 input pwd_flag,
 input [$clog2(N):0] flat_number
@@ -7,8 +9,8 @@ input [$clog2(N):0] flat_number
     reg avail_flag;
 
     initial begin
+        #1;
         $readmemb("./slot_avail_DB.txt", avail_arr);
-        #10;
         if(pwd_flag)begin       
             // already occupied 
             if(avail_arr[flat_number]==1) avail_flag=0;

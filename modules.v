@@ -1,5 +1,5 @@
 `include "number_of_slots.v"
-`include "slot_avail.v"
+`include "slot_availability_entry.v"
 
 module  add_passwords #(parameter N=`parking_slots)();
 
@@ -16,7 +16,7 @@ module  add_passwords #(parameter N=`parking_slots)();
       password =$urandom(seed) % 20;
       seed=$urandom;
       $fwrite(fd," %b",password); 
-      // $fdisplay(fd,"%b",password ); 
+      // $fdisplay(fd,"%b",password); 
     end
     $display("Database updated");
     $fclose(fd);
@@ -48,14 +48,17 @@ module pass_check #(parameter N=`parking_slots)();
   integer k;
   reg pwd_flag=0;
   wire avail_flag;
+  integer out_file;
 
   assign flat_number = in[0];
   assign password = in[1];
 
   initial begin
+    out_file = $fopen("./output.txt","a+");
     $readmemb("./DB.txt", var);
     $readmemb("./input.txt", in);
     $display("\nChecking Password...");
+    $fwrite(out_file,"Checking Password...\n"); 
 
     for (k=0; k<=N; k=k+1) begin
       // $display("\t%0d \t\t: %b %b",k,var[k],password);
@@ -63,12 +66,15 @@ module pass_check #(parameter N=`parking_slots)();
     end
 
     if(pwd_flag) begin
-        $display("Password Verified");
+      $display("Password Verified");
+      $fwrite(out_file,"Password Verified\n"); 
       end
     else begin
       $display("Wrong Password. Try Again.");
+      $fwrite(out_file,"Wrong Password. Try Again.\n"); 
     end
 
+    $fclose(out_file);
     // $display("flat = %0d password = %0d",flat_number ,password );
   end
 
