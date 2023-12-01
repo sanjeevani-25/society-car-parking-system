@@ -7,3 +7,5 @@
 /slot_avail.v.out
 /clear_slots_out.vvp
 /clear_slots.v.out
+/slot_availability_exit.v.out
+/slot_exit_out.vvp

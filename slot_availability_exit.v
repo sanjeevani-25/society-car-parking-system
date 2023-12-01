@@ -2,8 +2,8 @@
 
 module slot_availability_exit #(parameter N=`parking_slots)();
 
-    // reg [$clog2(N):0] in [0:1];
-    reg [$clog2(N):0] flat_number [0:1];
+    // reg [N:0] in [0:1];
+    reg [N:0] flat_number [0:1];
     reg avail_arr [0:N];
     integer fd,k;
     integer out_file;

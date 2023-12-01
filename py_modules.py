@@ -2,8 +2,8 @@ import os
 from termcolor import colored
 
 def vehicle_entry():
-    flat_number = input("Enter Your Flat Number : ")
-    password = input("Enter Your Password : ")
+    flat_number = input(colored("Enter Your Flat Number : ",'magenta'))
+    password = input(colored("Enter Your Password : ",'magenta'))
 
     def DecimalToBinary(n):
         return bin(n).replace("0b", "")
@@ -11,7 +11,7 @@ def vehicle_entry():
     flat_number_binary = DecimalToBinary(int(flat_number))
     pwd_binary = DecimalToBinary(int(password))
 
-    print(flat_number_binary, password)
+    print(flat_number, password)
 
     file = open("input.txt", "w")
     file.write(flat_number_binary + " " + pwd_binary)
@@ -22,7 +22,7 @@ def vehicle_entry():
 
 def vehicle_exit():
     # print("vehicle exited")
-    flat_number = input("Enter Your Flat Number : ")
+    flat_number = input(colored("Enter Your Flat Number : ",'magenta'))
 
     def DecimalToBinary(n):
         return bin(n).replace("0b", "")
@@ -42,10 +42,10 @@ def guest_parking():
     print("this is guest parking")
 
 def clear_slot():
-    clear_all_slots = input("Do you want to clear all slots? (Y/N) : ")
+    clear_all_slots = input(colored("Do you want to End this session ? (Y/N) : ",'red'))
 
     if(clear_all_slots=='Y' or clear_all_slots=='y'):
-        print(colored("Cleared",'blue'))
+        print(colored("Cleared",'green'))
         os.system('cmd /c "iverilog -o clear_slots_out.vvp clear_slots.v"')
         os.system('cmd /c "vvp clear_slots_out.vvp"')
         open('DB.txt', 'w').close()

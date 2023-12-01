@@ -18,4 +18,3 @@ inp()
 g.clear_slot()
 print("donee")
 # guest parking
-# vehicle exit

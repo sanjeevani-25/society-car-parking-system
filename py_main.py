@@ -2,7 +2,7 @@ import os
 from termcolor import colored
 
 open('output.txt', 'w').close()
-slots = int(input(colored("Enter number of parking slots : ",'magenta')))
+slots = int(input(colored("Enter number of flats : ",'magenta')))
 guest_slots = int(input(colored("Enter number of guest parking slots : ",'magenta')))
 slots_file = open("number_of_slots.v", "w")
 slots_file.write("`define parking_slots "+ str((slots-1))+"\n")
