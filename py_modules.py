@@ -35,11 +35,17 @@ def vehicle_exit():
     file.write(flat_number_binary)
     file.close()
 
-    os.system('cmd /c "iverilog -o slot_exit_out.vvp slot_availability_exit.v"')
-    os.system('cmd /c "vvp slot_exit_out.vvp"')
+    os.system('cmd /c "iverilog -o reserved_exit_out.vvp reserved_parking_exit.v"')
+    os.system('cmd /c "vvp reserved_exit_out.vvp"')
 
-def guest_parking():
-    print("this is guest parking")
+def guest_parking(n):
+    # print("this is guest parking")
+    if(n==2):
+        os.system('cmd /c "iverilog -o guest_entry_out.vvp guest_parking_entry.v"')
+        os.system('cmd /c "vvp guest_entry_out.vvp"')
+    else:
+        os.system('cmd /c "iverilog -o guest_exit_out.vvp guest_parking_exit.v"')
+        os.system('cmd /c "vvp guest_exit_out.vvp"')
 
 def clear_slot():
     clear_all_slots = input(colored("Do you want to End this session ? (Y/N) : ",'red'))
@@ -50,7 +56,7 @@ def clear_slot():
         os.system('cmd /c "vvp clear_slots_out.vvp"')
         open('DB.txt', 'w').close()
         open('input.txt', 'w').close()
-        open('slot_avail_DB.txt', 'w').close()
+        open('DB_reserved.txt', 'w').close()
 
     elif(clear_all_slots=='N' or clear_all_slots=='n'):
         print(colored("Refresh",'blue'))
@@ -65,4 +71,4 @@ def clear_slot():
 
 # open('DB.txt', 'w').close()
 # open('input.txt', 'w').close()
-# open('slot_avail_DB.txt', 'w').close()
+# open('DB_reserved.txt', 'w').close()

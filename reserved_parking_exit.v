@@ -14,14 +14,14 @@ module slot_availability_exit #(parameter N=`parking_slots)();
         #2;
         out_file = $fopen("./output.txt","a+");
         $readmemb("./input.txt", flat_number);
-        $readmemb("./slot_avail_DB.txt", avail_arr);
+        $readmemb("./DB_reserved.txt", avail_arr);
 
         if(avail_arr[flat_number[0]]==1) begin
             avail_arr[flat_number[0]]=0;
             $display("Vehicle from %d flat parking lot exited.",flat_number[0]);
             $fwrite(out_file,"Vehicle from %d flat parking lot exited.\n",flat_number[0]); 
 
-            fd=$fopen("./slot_avail_DB.txt","w+");
+            fd=$fopen("./DB_reserved.txt","w+");
             for (k=0; k<=N; k=k+1) begin
                 $fwrite(fd," %0b",avail_arr[k]);
             end

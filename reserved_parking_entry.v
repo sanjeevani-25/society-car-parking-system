@@ -1,6 +1,6 @@
 `include "number_of_slots.v"
 
-module slot_availability_entry #(parameter N=`parking_slots)(
+module reserved_parking_entry #(parameter N=`parking_slots)(
 input pwd_flag,
 input [N:0] flat_number
 );
@@ -9,7 +9,7 @@ input [N:0] flat_number
     reg avail_flag;
 
     initial begin
-        $readmemb("./slot_avail_DB.txt", avail_arr);
+        $readmemb("./DB_reserved.txt", avail_arr);
         #1;
         // $display(flat_number);
         // if(flat_number>N+1) begin
@@ -29,7 +29,7 @@ input [N:0] flat_number
                 end
             end
 
-            fd=$fopen("./slot_avail_DB.txt","w+");
+            fd=$fopen("./DB_reserved.txt","w+");
             for (k=0; k<=N; k=k+1) begin
                 $fwrite(fd," %0b",avail_arr[k]);
             end

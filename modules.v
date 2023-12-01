@@ -1,5 +1,5 @@
 `include "number_of_slots.v"
-`include "slot_availability_entry.v"
+`include "reserved_parking_entry.v"
 
 module  add_passwords #(parameter N=`parking_slots)();
 
@@ -86,6 +86,6 @@ module pass_check #(parameter N=`parking_slots)();
     // $display("flat = %0d password = %0d",flat_number ,password );
   end
 
-  slot_availability_entry inst4(pwd_flag, flat_number);
+  reserved_parking_entry inst4(pwd_flag, flat_number);
 
 endmodule

@@ -1,2 +1,1 @@
-Checking Password...
-Enter Valid Flat Number between 1-          2
+Guest vehicle entered.

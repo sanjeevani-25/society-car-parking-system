@@ -3,9 +3,11 @@
 /modules.v.out
 /DB.txt
 /input.txt
-/slot_avail_DB.txt
-/slot_avail.v.out
+/DB_reserved.txt
+/DB_guest.txt
 /clear_slots_out.vvp
 /clear_slots.v.out
-/slot_availability_exit.v.out
-/slot_exit_out.vvp
+/guest_parking_exit.v.out
+/guest_parking_entry.v.out
+/guest_exit_out.vvp
+/guest_entry_out.vvp

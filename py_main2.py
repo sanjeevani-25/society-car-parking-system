@@ -2,14 +2,14 @@ import py_modules as g
 from termcolor import colored
 
 def inp():
-    num = input(colored("For Exit --> 0\nFor Entry --> 1\nFor Guest Parking --> 2\n",'yellow'))
+    num = input(colored("Reserved Parking Entry --> 0\nReserved Parking Entry --> 1\nGuest Parking Entry --> 2\nGuest Parking Exit --> 3\n",'yellow'))
     num=int(num)
-    if(num==1):
+    if(num==0):
         g.vehicle_entry()
-    elif(num==0):
+    elif(num==1):
         g.vehicle_exit()
-    elif(num==2):
-        g.guest_parking()
+    elif(num==2 or num==3):
+        g.guest_parking(num)
     else:
         print(colored('Enter appropriate value!','red'))
         inp()
