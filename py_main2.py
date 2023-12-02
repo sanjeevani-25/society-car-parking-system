@@ -16,5 +16,6 @@ def inp():
 
 inp()
 g.clear_slot()
+open('output.txt', 'w').close()
 print("donee")
 # guest parking

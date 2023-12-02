@@ -4,7 +4,7 @@
 module clear_parking_slots #(parameter N=`parking_slots)();
     integer fd,k;
     initial begin 
-        fd=$fopen("./slot_avail_DB.txt","w+");
+        fd=$fopen("./DB_reserved.txt","w+");
         for (k=0; k<=N; k=k+1) begin
             $fwrite(fd," %0b",0);
         end
