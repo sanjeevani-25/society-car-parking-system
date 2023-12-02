@@ -59,6 +59,7 @@ def clear_slot():
         open('input.txt', 'w').close()
         open('DB_reserved.txt', 'w').close()
         open('number_of_slots.v', 'w').close()
+        open('output.txt', 'w').close()
 
     elif(clear_all_slots=='N' or clear_all_slots=='n'):
         print(colored("Refresh",'blue'))
