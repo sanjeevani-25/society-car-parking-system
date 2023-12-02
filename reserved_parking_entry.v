@@ -2,7 +2,7 @@
 
 module reserved_parking_entry #(parameter N=`parking_slots)(
 input pwd_flag,
-input [N:0] flat_number
+input [$clog2(N):0] flat_number
 );
     integer fd,k;
     reg avail_arr [0:N];
@@ -10,14 +10,14 @@ input [N:0] flat_number
 
     initial begin
         $readmemb("./DB_reserved.txt", avail_arr);
-        #1;
+        #3;
         // $display(flat_number);
         // if(flat_number>N+1) begin
         //     $display("Enter Valid Flat Number between 1-%d",N+1);
         //     $fwrite(out_file,"Enter Valid Flat Number between 1-%d",N+1);
         // end
 
-        if(flat_number<=N) begin
+        if(flat_number<=N+1) begin
           
             if(pwd_flag)begin       
                 // already occupied 

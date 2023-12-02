@@ -13,9 +13,9 @@ module guest_parking_exit #(parameter N1 = `guest_slots)();
 
         if(avail_slot[0] < N1) begin
             
-            $display(avail_slot[0]);
+            // $display(avail_slot[0]);
             avail_slot[0] = (avail_slot[0]+1);
-            $display(avail_slot[0]);
+            // $display(avail_slot[0]);
 
             fd=$fopen("./DB_guest.txt","w+");
             for (k=0; k<=1; k=k+1) begin

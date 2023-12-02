@@ -3,7 +3,7 @@
 module slot_availability_exit #(parameter N=`parking_slots)();
 
     // reg [N:0] in [0:1];
-    reg [N:0] flat_number [0:1];
+    reg [$clog2(N):0] flat_number [0:1];
     reg avail_arr [0:N];
     integer fd,k;
     integer out_file;
@@ -11,13 +11,13 @@ module slot_availability_exit #(parameter N=`parking_slots)();
     // assign flat_number=in[0];
 
     initial begin
-        #2;
+        #4;
         out_file = $fopen("./output.txt","a+");
         $readmemb("./input.txt", flat_number);
         $readmemb("./DB_reserved.txt", avail_arr);
 
         if(avail_arr[flat_number[0]]==1) begin
-            avail_arr[flat_number[0]]=0;
+            avail_arr[flat_number[0]-1]=0;
             $display("Vehicle from %d flat parking lot exited.",flat_number[0]);
             $fwrite(out_file,"Vehicle from %d flat parking lot exited.\n",flat_number[0]); 
 

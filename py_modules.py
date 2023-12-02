@@ -2,6 +2,7 @@ import os
 from termcolor import colored
 
 def vehicle_entry():
+
     flat_number = input(colored("Enter Your Flat Number : ",'magenta'))
     password = input(colored("Enter Your Password : ",'magenta'))
 
@@ -51,7 +52,7 @@ def clear_slot():
     clear_all_slots = input(colored("Do you want to End this session ? (Y/N) : ",'red'))
 
     if(clear_all_slots=='Y' or clear_all_slots=='y'):
-        print(colored("Cleared",'green'))
+        print(colored("Session Ended",'green'))
         os.system('cmd /c "iverilog -o clear_slots_out.vvp clear_slots.v"')
         os.system('cmd /c "vvp clear_slots_out.vvp"')
         open('DB.txt', 'w').close()
