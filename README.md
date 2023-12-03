@@ -134,11 +134,11 @@ The Smart Parking System is a hardware-software integrated solution designed for
 
 3. Install Verilog tools if not already installed:
 
-    - Example for [iverilog](http://iverilog.icarus.com/):
+  Example for [iverilog](http://iverilog.icarus.com/):
 
-        ```bash
-        sudo apt-get install iverilog
-        ```
+    ```bash
+    sudo apt-get install iverilog
+    ```
 
 4. Run the system: 
     ```bash
