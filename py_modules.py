@@ -18,8 +18,8 @@ def vehicle_entry():
     file.write(flat_number_binary + " " + pwd_binary)
     file.close()
 
-    os.system('cmd /c "iverilog -o main_out.vvp main.v"')
-    os.system('cmd /c "vvp main_out.vvp"')
+    os.system('cmd /c "iverilog -o pass_check_out.vvp pass_check.v"')
+    os.system('cmd /c "vvp pass_check_out.vvp"')
 
 def vehicle_exit():
     # print("vehicle exited")

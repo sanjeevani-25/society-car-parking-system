@@ -39,7 +39,7 @@ input [$clog2(N):0] flat_number
 
             else if(!avail_flag) $display("Slot occupied. Vehicle cannot enter.");
 
-            else $display("Vehicle cannot enter.");
+            // else $display("Vehicle cannot enter.");
         end
 
     end

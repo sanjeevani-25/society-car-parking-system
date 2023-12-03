@@ -17,4 +17,8 @@ file.close()
 
 os.system('cmd /c "iverilog -o clear_slots_out.vvp clear_slots.v"')
 os.system('cmd /c "vvp clear_slots_out.vvp"')
+
+os.system('cmd /c "iverilog -o DB_make_out.vvp DB_make.v"')
+os.system('cmd /c "vvp DB_make_out.vvp"')
+
 os.system('cmd /c "python py_main2.py"')

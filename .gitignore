@@ -1,11 +1,12 @@
-/main.v.out
-/main_out.vvp
-/modules.v.out
+/DB_make.v.out
+/DB_make_out.vvp
 /DB.txt
 /input.txt
 /DB_reserved.txt
 /DB_guest.txt
 /output.txt
+/pass_check.v.out
+/pass_check_out.vvp
 /clear_slots_out.vvp
 /clear_slots.v.out
 /reserved_exit_out.vvp
