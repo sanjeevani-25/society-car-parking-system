@@ -117,13 +117,33 @@ The Smart Parking System is a hardware-software integrated solution designed for
 
 2. The Python script (`py_main.py`) orchestrates the overall system, providing a seamless user experience.
 
-## Getting Started
+## Installation
 
-1. Clone the repository: `git clone https://github.com/sanjeevani-25/society-car-parking-system.git`
+1. Clone the repository:
 
-2. Navigate to the project directory: `cd society-car-parking-system`
+    ```bash
+    git clone https://github.com/sanjeevani-25/society-car-parking-system.git
+    cd society-car-parking-system
+    ```
 
-3. Run the system: `python py_main.py`
+2. Install the required Python packages:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Install Verilog tools if not already installed:
+
+    - Example for [iverilog](http://iverilog.icarus.com/):
+
+        ```bash
+        sudo apt-get install iverilog
+        ```
+
+4. Run the system: 
+    ```bash
+    python py_main.py
+    ```
 
 ## Dependencies
 
