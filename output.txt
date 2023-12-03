@@ -1,3 +1,19 @@
 Checking Password...
 Password Verified
 INVALID. Flat 13 slot is already empty!
+INVALID. Flat 12 slot is already empty!
+INVALID. Flat 12 slot is already empty!
+INVALID. Flat 12 slot is already empty!
+Vehicle from 11 flat parking lot exited.
+INVALID. Flat 12 slot is already empty!
+INVALID. Flat 12 slot is already empty!
+INVALID. Flat  1 slot is already empty!
+INVALID. Flat  1 slot is already empty!
+INVALID. Flat  1 slot is already empty!
+INVALID. Flat  1 slot is already empty!
+INVALID. Flat 12 slot is already empty!
+INVALID. Flat 12 slot is already empty!
+Vehicle from 12 flat parking lot exited.
+INVALID. Flat 14 slot is already empty!
+INVALID. Flat 12 slot is already empty!
+Vehicle from  1 flat parking lot exited.

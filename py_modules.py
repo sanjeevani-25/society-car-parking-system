@@ -30,10 +30,11 @@ def vehicle_exit():
 
     flat_number_binary = DecimalToBinary(int(flat_number))
 
-    print(flat_number_binary)
+    # print(flat_number_binary)
 
     file = open("input.txt", "w")
     file.write(flat_number_binary)
+    file.write(" 1")
     file.close()
 
     os.system('cmd /c "iverilog -o reserved_exit_out.vvp reserved_parking_exit.v"')

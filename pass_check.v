@@ -20,7 +20,7 @@ module pass_check #(parameter N=`parking_slots)();
     $readmemb("./DB.txt", var);
     $readmemb("./input.txt", in);
 
-    if(flat_number>N+1 || flat_number==0) begin
+    if(flat_number>N+1 || flat_number<0) begin
       $display("Enter Valid Flat Number between 1-%0d",N+1);
       $fwrite(out_file,"Enter Valid Flat Number between 1-%0d",N+1);
     end
